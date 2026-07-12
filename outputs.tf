@@ -1,3 +1,7 @@
+output "eventhub_namespace_authorization_rules_id" {
+  description = "Map of id values across all eventhub_namespace_authorization_rules, keyed the same as var.eventhub_namespace_authorization_rules"
+  value       = { for k, v in azurerm_eventhub_namespace_authorization_rule.eventhub_namespace_authorization_rules : k => v.id }
+}
 output "eventhub_namespace_authorization_rules_listen" {
   description = "Map of listen values across all eventhub_namespace_authorization_rules, keyed the same as var.eventhub_namespace_authorization_rules"
   value       = { for k, v in azurerm_eventhub_namespace_authorization_rule.eventhub_namespace_authorization_rules : k => v.listen }
